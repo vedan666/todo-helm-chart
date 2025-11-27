@@ -1,0 +1,37 @@
+common:
+  containerRegistryURL: acrdevtodoappved6942001.azurecr.io
+  ingressClassName: azure-application-gateway
+  hostDomain: memesforlife.sbs
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqldb-dev-todoapp-server.database.windows.net,1433;Database=sqldb-dev-todoapp69420;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+
+ui:
+  replicas: 2
+  image:
+    name: todo-ui
+    tag: v1
+  containerPort: 80
+  svcPort: 80
+
+addTask:
+  replicas: 2
+  image:
+    name: todo-add-tasks-api
+    tag: v1
+  containerPort: 8000
+  svcPort: 80
+
+deleteTask:
+  replicas: 2
+  image:
+    name: todo-delete-tasks-api
+    tag: v1
+  containerPort: 8000
+  svcPort: 80
+
+getTask:
+  replicas: 2
+  image:
+    name: todo-get-tasks-api
+    tag: v1
+  containerPort: 8000
+  svcPort: 80

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Release.Name}}-todo-get-tasks-api-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: {{.Release.Name}}-todo-get-tasks-api
+  ports:
+    - port: {{.Values.getTask.svcPort}}
+      targetPort: {{.Values.getTask.containerPort}}
